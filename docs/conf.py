@@ -4,22 +4,22 @@
 # list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
-
 # -- Path setup --------------------------------------------------------------
+from mock import Mock as MagicMock
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../SILKWORM'))
 sys.path.insert(0, os.path.abspath('../SILKWORM/silkworm'))
 sys.path.insert(0, os.path.abspath('../SILKWORM/silkworm/silktime'))
 
-from mock import Mock as MagicMock
 
 class Mock(MagicMock):
     @classmethod
     def __getattr__(cls, name):
         return MagicMock()
 
-MOCK_MODULES = ['numpy', 'matplotlib', 'gr', 'gr.pygr', 'gr.pygr.mlab']
+
+MOCK_MODULES = ['numpy']
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
 # -- Project information -----------------------------------------------------
@@ -29,8 +29,7 @@ copyright = '2019, Drason Chow'
 author = 'Drason Chow'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.2.1'
-
+release = '0.1'
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,10 +37,10 @@ release = '0.0.2.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-extensions = ['sphinx.ext.autodoc',
-    'sphinx.ext.coverage',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.viewcode']
+extensions = [
+    'sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon',
+    'sphinx.ext.viewcode'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -50,7 +49,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
 
 # -- Options for HTML output -------------------------------------------------
 
