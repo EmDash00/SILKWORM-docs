@@ -8,6 +8,7 @@
 from mock import Mock as MagicMock
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('../SILKWORM'))
 sys.path.insert(0, os.path.abspath('../SILKWORM/silkworm'))
 sys.path.insert(0, os.path.abspath('../SILKWORM/silkworm/silktime'))
@@ -25,11 +26,11 @@ sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 # -- Project information -----------------------------------------------------
 
 project = 'SILKWORM'
-copyright = '2019, Drason Chow'
-author = 'Drason Chow'
+copyright = '2020, SIL'
+author = 'SIL'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '0.0.3'
 
 # -- General configuration ---------------------------------------------------
 
